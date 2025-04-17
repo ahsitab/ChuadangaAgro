@@ -35,35 +35,35 @@ document.addEventListener('DOMContentLoaded', function() {
         products = [
             {
                 id: 1,
-                name: 'Friesian Cow',
+                name: 'Shahiwal-1',
                 category: 'livestock',
-                price: 120000,
-                stock: 8,
+                price: 520000,
+                stock: 0,
                 discount: 0,
                 description: 'High-quality Friesian cow with excellent milk production. Healthy and vaccinated.',
                 images: [
-                    'https://images.unsplash.com/photo-1549318867-3406d8a6a0a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    'c1.jpg',
                     'https://images.unsplash.com/photo-1535435734705-4f0f32e27c83?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1534337621606-e3df5ee0e97f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
                 ],
                 tags: ['dairy', 'milk', 'healthy'],
                 instructions: 'Requires regular feeding with quality fodder and clean water. Needs shelter from extreme weather.',
-                weight: '450-500 kg',
+                weight: '750 kg',
                 age: '3 years',
-                milkProduction: '25-30 liters/day',
-                color: 'Black and white'
+                milkProduction: '0',
+                color: 'Black and Red'
             },
             {
                 id: 2,
-                name: 'Jersey Cow',
+                name: 'Shahiwal-2',
                 category: 'livestock',
-                price: 95000,
-                stock: 5,
-                discount: 10,
+                price: 480000,
+                stock: 0,
+                discount: 0,
                 description: 'Purebred Jersey cow known for high butterfat content in milk. Very docile temperament.',
                 images: [
-                    'https://images.unsplash.com/photo-1564087048484-2faba87bcdb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    'c2.jpg',
                     'https://images.unsplash.com/photo-1534337621606-e3df5ee0e97f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1549318867-3406d8a6a0a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1535435734705-4f0f32e27c83?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
@@ -72,19 +72,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 instructions: 'Needs balanced diet with mineral supplements. Regular milking schedule is important.',
                 weight: '350-400 kg',
                 age: '2.5 years',
-                milkProduction: '20-25 liters/day',
-                color: 'Fawn'
+                milkProduction: '0',
+                color: 'white and black'
             },
             {
                 id: 3,
                 name: 'Local Deshi Cow',
                 category: 'livestock',
-                price: 65000,
-                stock: 12,
-                discount: 5,
+                price: 250000,
+                stock: 0,
+                discount: 0,
                 description: 'Indigenous breed well-adapted to local climate. Good for both milk and meat production.',
                 images: [
-                    'https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    'c3.jpg',
                     'https://images.unsplash.com/photo-1564087048484-2faba87bcdb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1535435734705-4f0f32e27c83?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1549318867-3406d8a6a0a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
@@ -92,41 +92,41 @@ document.addEventListener('DOMContentLoaded', function() {
                 tags: ['local', 'dual-purpose', 'hardy'],
                 instructions: 'Low maintenance. Can thrive on local fodder. Resistant to common diseases.',
                 weight: '250-300 kg',
-                age: '4 years',
-                milkProduction: '8-10 liters/day',
-                color: 'Brown'
+                age: '3 years',
+                milkProduction: '0',
+                color: 'Black'
             },
             {
                 id: 4,
                 name: 'Sahiwal Cow',
                 category: 'livestock',
-                price: 85000,
-                stock: 6,
+                price: 375000,
+                stock: 0,
                 discount: 0,
                 description: 'Heat-tolerant breed from Pakistan. Excellent milk production in tropical climates.',
                 images: [
-                    'https://images.unsplash.com/photo-1535435734705-4f0f32e27c83?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    'c4.jpg',
                     'https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1549318867-3406d8a6a0a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1564087048484-2faba87bcdb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
                 ],
                 tags: ['tropical', 'heat-tolerant', 'dairy'],
                 instructions: 'Needs shade and plenty of water in hot weather. Good quality fodder improves milk yield.',
-                weight: '400-450 kg',
+                weight: '710 kg',
                 age: '3.5 years',
-                milkProduction: '15-20 liters/day',
+                milkProduction: '00',
                 color: 'Reddish brown'
             },
             {
                 id: 5,
-                name: 'Pregnant Friesian Cow',
+                name: 'Brahama Cross',
                 category: 'livestock',
-                price: 150000,
-                stock: 3,
+                price: 250000,
+                stock: 0,
                 discount: 0,
                 description: 'High-quality pregnant Friesian cow. Expected to deliver in 2 months.',
                 images: [
-                    'https://images.unsplash.com/photo-1549318867-3406d8a6a0a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    'c5.jpg',
                     'https://images.unsplash.com/photo-1534337621606-e3df5ee0e97f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1564087048484-2faba87bcdb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
@@ -134,10 +134,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 tags: ['pregnant', 'dairy', 'high-value'],
                 instructions: 'Needs special care and nutrition during pregnancy. Consult vet regularly.',
                 weight: '500-550 kg',
-                age: '4 years',
+                age: '3 years',
                 milkProduction: 'Will resume after calving',
                 color: 'Black and white',
-                pregnancyStatus: '6 months'
+                pregnancyStatus: '0'
             },
             {
                 id: 6,
@@ -149,8 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: 'Premium Amrapali mangoes, sweet and fiberless. Grown organically in our orchards.',
                 images: [
                     '3m.jpg',
-                    'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-                    'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    '3m1.jpg',
+                    'm2.jpg',
                     'https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
                 ],
                 tags: ['sweet', 'fiberless', 'organic'],
@@ -183,15 +183,16 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 id: 8,
-                name: 'Litchi (Bombai)',
+                name: 'Litchi (100 pc)',
                 category: 'fruits',
-                price: 180,
+                price: 480,
+                quantity: 100,
                 stock: 80,
                 discount: 20,
                 description: 'Juicy Bombai litchis with thin skin and small seed. Seasonal delicacy.',
                 images: [
-                    'https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-                    'https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    'l1.jpg',
+                    'l2.jpg',
                     'https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
                 ],
@@ -211,8 +212,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 discount: 10,
                 description: 'Kazi guavas with pink flesh and high vitamin C content. Crisp and sweet.',
                 images: [
-                    'https://images.unsplash.com/photo-1588771471271-32edb8e3c5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-                    'https://images.unsplash.com/photo-1588771471271-32edb8e3c5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    'g1.jpg',
+                    'g2.jpg',
                     'https://images.unsplash.com/photo-1588771471271-32edb8e3c5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1588771471271-32edb8e3c5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
                 ],
@@ -246,15 +247,15 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 id: 11,
-                name: 'Rice (BRRI Dhan 28)',
+                name: 'Onion',
                 category: 'crops',
                 price: 45,
-                stock: 1000,
+                stock: 80,
                 discount: 5,
-                description: 'High-quality BRRI Dhan 28 rice grains. High yield variety with excellent taste.',
+                description: 'দেশী পাবনার পেয়াজ',
                 images: [
-                    'https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-                    'https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                    'o1.jpg',
+                    'o2.jpg',
                     'https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
                 ],
