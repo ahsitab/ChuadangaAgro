@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuadanga Agro - Premium Agricultural Products</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="1.jpg" alt="Chuadanga Agro Logo" class="logo-img">
+            <h1>Chuadanga <span>Agro</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#orders" class="nav-link" id="myOrdersLink">My Orders</a></li>
+            </ul>
+        </nav>
+        <div class="header-buttons">
+            <button id="adminLoginBtn" class="btn outline-btn">Admin Login</button>
+            <button id="userRegisterBtn" class="btn primary-btn">Register</button>
+            <button id="userLoginBtn" class="btn outline-btn hidden">Login</button>
+            <button id="userLogoutBtn" class="btn outline-btn hidden">Logout</button>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Agricultural Products</h1>
+            <p>High-quality crops, livestock, and dairy products directly from our local farms in Chuadanga</p>
+            <div class="hero-buttons">
+                <button class="btn primary-btn pulse" id="shopNowBtn">Shop Now</button>
+                <button class="btn outline-btn" id="learnMoreBtn">Learn More</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="2.jpg" alt="Farm products" class="hero-img">
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <h2>Our Products</h2>
+            <p>Fresh from our farms to your home</p>
+        </div>
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="all">All Products</button>
+            <button class="category-tab" data-category="livestock">Livestock</button>
+            <button class="category-tab" data-category="fruits">Fruits</button>
+            <button class="category-tab" data-category="crops">Crops</button>
+            <button class="category-tab" data-category="dairy">Dairy</button>
+        </div>
+        <div class="product-grid" id="productGrid">
+            <!-- Products will be loaded here -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <h2>About Chuadanga Agro</h2>
+            <p>Our story and mission</p>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Our Farm">
+            </div>
+            <div class="about-text">
+                <h3>Connecting Farmers to Consumers</h3>
+                <p>Founded in 1997, Chuadanga Agro has been a trusted name in agricultural products in the region. We specialize in providing high-quality livestock, fruits, and crops to customers and businesses alike.</p>
+                <p>Our mission is to bridge the gap between local farmers and consumers, ensuring fair prices for producers and premium quality for buyers.</p>
+                <button class="btn primary-btn">Our Story</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our team</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Visit Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Cithla Hospital Road, Damurhuda, Chuadanga, Bangladesh</p>
+                <p><i class="fas fa-phone"></i> +8801557766933</p>
+                <p><i class="fas fa-envelope"></i> chuadangaagro@gmail.com</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" id="contactName" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" id="contactEmail" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Subject" id="contactSubject">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" id="contactMessage" required></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Username</label>
+                    <input type="text" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn primary-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>User Registration</h2>
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regPhone">Phone Number</label>
+                        <input type="tel" id="regPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regUsername">Username</label>
+                        <input type="text" id="regUsername" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm Password</label>
+                        <input type="password" id="regConfirmPassword" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn primary-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div class="modal" id="adminDashboard">
+        <div class="modal-content admin-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Admin Dashboard</h2>
+            
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="dashboard">Dashboard</button>
+                <button class="admin-tab" data-tab="products">Product Management</button>
+                <button class="admin-tab" data-tab="orders">Order Management</button>
+                <button class="admin-tab" data-tab="inventory">Inventory</button>
+                <button class="admin-tab" data-tab="customers">Customers</button>
+                <button class="admin-tab" data-tab="messages">Messages</button>
+                <button class="admin-tab" data-tab="blog">Blog/Announcements</button>
+                <button class="admin-tab" data-tab="analytics">Analytics</button>
+                <button class="admin-tab" data-tab="settings">Settings</button>
+            </div>
+            
+            <div class="admin-content active" id="dashboardTab">
+                <div class="dashboard-header">
+                    <h3>Overview Dashboard</h3>
+                    <div class="dashboard-date-range">
+                        <select id="dashboardTimeRange">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month" selected>This Month</option>
+                            <option value="year">This Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                        <div class="custom-range hidden" id="customRangePicker">
+                            <input type="date" id="startDate">
+                            <span>to</span>
+                            <input type="date" id="endDate">
+                            <button class="btn small-btn primary-btn" id="applyDateRange">Apply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-notifications">
+                    <div class="notification-card new-orders">
+                        <div class="notification-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="notification-badge">5</span>
+                        </div>
+                        <div class="notification-content">
+                            <h4>New Orders</h4>
+                            <p>5 pending orders need processing</p>
+                            <button class="btn small-btn outline-btn">View Orders</button>
+                        </div>
+                    </div>
+                    <div class="notification-card low-stock">
+                        <div class="notification-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span class="notification-badge">3</span>
+                        </div>
+                        <div class="notification-content">
+                            <h4>Low Stock</h4>
+                            <p>3 products need restocking</p>
+                            <button class="btn small-btn outline-btn">View Inventory</button>
+                        </div>
+                    </div>
+                    <div class="notification-card new-messages">
+                        <div class="notification-icon">
+                            <i class="fas fa-envelope"></i>
+                            <span class="notification-badge">7</span>
+                        </div>
+                        <div class="notification-content">
+                            <h4>New Messages</h4>
+                            <p>7 unread customer messages</p>
+                            <button class="btn small-btn outline-btn">View Messages</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalSales">৳2,450.75</div>
+                        <div class="stat-label">Total Sales</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 12.5% from last month
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalOrders">42</div>
+                        <div class="stat-label">Total Orders</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 8.3% from last month
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="newCustomers">18</div>
+                        <div class="stat-label">New Customers</div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i> 5.2% from last month
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="avgOrderValue">৳58.35</div>
+                        <div class="stat-label">Avg. Order Value</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 3.7% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h4>Sales Analytics</h4>
+                            <div class="chart-actions">
+                                <button class="btn chart-action-btn active" data-period="monthly">Monthly</button>
+                                <button class="btn chart-action-btn" data-period="weekly">Weekly</button>
+                                <button class="btn chart-action-btn" data-period="daily">Daily</button>
+                            </div>
+                        </div>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h4>Top Selling Products</h4>
+                            <div class="chart-actions">
+                                <button class="btn chart-action-btn active" data-type="quantity">By Quantity</button>
+                                <button class="btn chart-action-btn" data-type="revenue">By Revenue</button>
+                            </div>
+                        </div>
+                        <canvas id="productsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="recent-orders">
+                        <div class="section-title">
+                            <h4>Recent Orders</h4>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="order-list" id="recentOrderList">
+                            <!-- Recent orders will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="customer-activity">
+                        <div class="section-title">
+                            <h4>Recent Customer Activity</h4>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="activity-list" id="customerActivityList">
+                            <!-- Customer activities will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-content hidden" id="productsTab">
+                <div class="admin-section-header">
+                    <h3>Product Management</h3>
+                    <div class="admin-actions">
+                        <button class="btn primary-btn" id="exportProductsBtn">Export Products</button>
+                        <button class="btn outline-btn" id="importProductsBtn">Import Products</button>
+                        <input type="file" id="productImportFile" class="hidden" accept=".csv,.json">
+                    </div>
+                </div>
+                
+                <div class="product-management-tabs">
+                    <button class="pm-tab active" data-tab="all-products">All Products</button>
+                    <button class="pm-tab" data-tab="categories">Categories</button>
+                    <button class="pm-tab" data-tab="discounts">Discounts & Promotions</button>
+                </div>
+                
+                <div class="product-management-content">
+                    <div class="pm-content active" id="all-products-content">
+                        <form id="addProductForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productName">Product Name</label>
+                                    <input type="text" id="productName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productCategory">Category</label>
+                                    <select id="productCategory" required>
+                                        <option value="">Select Category</option>
+                                        <option value="livestock">Livestock</option>
+                                        <option value="fruits">Fruits</option>
+                                        <option value="crops">Crops</option>
+                                        <option value="dairy">Dairy</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productPrice">Price (BDT)</label>
+                                    <input type="number" id="productPrice" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productStock">Stock Quantity</label>
+                                    <input type="number" id="productStock" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productDiscount">Discount (%)</label>
+                                    <input type="number" id="productDiscount" min="0" max="100" value="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="productDescription">Description</label>
+                                <textarea id="productDescription" required></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productImage">Image URL</label>
+                                    <input type="text" id="productImage" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productTags">Tags (comma separated)</label>
+                                    <input type="text" id="productTags" placeholder="e.g., organic, fresh, local">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="productInstructions">Usage/Growth Instructions</label>
+                                <textarea id="productInstructions"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn primary-btn" id="addProductBtn">Add Product</button>
+                                <button class="btn outline-btn hidden" id="cancelEditBtn">Cancel</button>
+                            </div>
+                        </form>
+                        
+                        <div class="product-search-filter">
+                            <input type="text" id="productSearch" placeholder="Search products...">
+                            <select id="productFilterCategory">
+                                <option value="">All Categories</option>
+                                <option value="livestock">Livestock</option>
+                                <option value="fruits">Fruits</option>
+                                <option value="crops">Crops</option>
+                                <option value="dairy">Dairy</option>
+                            </select>
+                            <select id="productFilterStock">
+                                <option value="">All Stock Status</option>
+                                <option value="in_stock">In Stock</option>
+                                <option value="low_stock">Low Stock</option>
+                                <option value="out_of_stock">Out of Stock</option>
+                            </select>
+                        </div>
+                        
+                        <div class="admin-product-list" id="adminProductList">
+                            <!-- Products will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="pm-content hidden" id="categories-content">
+                        <form id="addCategoryForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="categoryName">Category Name</label>
+                                    <input type="text" id="categoryName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="categoryImage">Category Image URL</label>
+                                    <input type="text" id="categoryImage">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryDescription">Description</label>
+                                <textarea id="categoryDescription"></textarea>
+                            </div>
+                            <button type="submit" class="btn primary-btn">Add Category</button>
+                        </form>
+                        
+                        <div class="category-list" id="categoryList">
+                            <!-- Categories will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="pm-content hidden" id="discounts-content">
+                        <form id="addDiscountForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="discountName">Promotion Name</label>
+                                    <input type="text" id="discountName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="discountType">Discount Type</label>
+                                    <select id="discountType" required>
+                                        <option value="percentage">Percentage</option>
+                                        <option value="fixed">Fixed Amount</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="discountValue">Discount Value</label>
+                                    <input type="number" id="discountValue" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="discountProducts">Apply To</label>
+                                    <select id="discountProducts" multiple>
+                                        <!-- Products will be loaded here -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="discountStartDate">Start Date</label>
+                                    <input type="datetime-local" id="discountStartDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="discountEndDate">End Date</label>
+                                    <input type="datetime-local" id="discountEndDate" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="discountDescription">Description</label>
+                                <textarea id="discountDescription"></textarea>
+                            </div>
+                            <button type="submit" class="btn primary-btn">Add Promotion</button>
+                        </form>
+                        
+                        <div class="discount-list" id="discountList">
+                            <!-- Discounts will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-content hidden" id="ordersTab">
+                <div class="admin-section-header">
+                    <h3>Order Management</h3>
+                    <div class="order-filters">
+                        <select id="orderStatusFilter">
+                            <option value="">All Statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <input type="text" id="orderSearch" placeholder="Search orders...">
+                        <div class="date-range-filter">
+                            <input type="date" id="orderStartDate">
+                            <span>to</span>
+                            <input type="date" id="orderEndDate">
+                            <button class="btn small-btn primary-btn" id="applyOrderFilter">Apply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-list" id="orderList">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="admin-content hidden" id="inventoryTab">
+                <div class="admin-section-header">
+                    <h3>Inventory Management</h3>
+                    <div class="inventory-actions">
+                        <button class="btn primary-btn" id="exportInventoryBtn">Export Inventory</button>
+                        <button class="btn outline-btn" id="refreshInventoryBtn">Refresh</button>
+                        <button class="btn outline-btn" id="lowStockReportBtn">Low Stock Report</button>
+                    </div>
+                </div>
+                
+                <div class="inventory-stats">
+                    <div class="inventory-stat-card">
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Total Products</div>
+                    </div>
+                    <div class="inventory-stat-card warning">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Low Stock Items</div>
+                    </div>
+                    <div class="inventory-stat-card danger">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Out of Stock</div>
+                    </div>
+                    <div class="inventory-stat-card">
+                        <div class="stat-value">35</div>
+                        <div class="stat-label">In Stock</div>
+                    </div>
+                </div>
+                
+                <div class="inventory-list" id="inventoryList">
+                    <!-- Inventory items will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="admin-content hidden" id="customersTab">
+                <div class="admin-section-header">
+                    <h3>Customer Management</h3>
+                    <div class="customer-filters">
+                        <input type="text" id="customerSearch" placeholder="Search customers...">
+                        <select id="customerFilter">
+                            <option value="">All Customers</option>
+                            <option value="new">New (last 30 days)</option>
+                            <option value="active">Active (ordered recently)</option>
+                            <option value="inactive">Inactive (no orders in 6mo)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="customer-stats">
+                    <div class="customer-stat-card">
+                        <div class="stat-value">128</div>
+                        <div class="stat-label">Total Customers</div>
+                    </div>
+                    <div class="customer-stat-card">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">New This Month</div>
+                    </div>
+                    <div class="customer-stat-card">
+                        <div class="stat-value">85</div>
+                        <div class="stat-label">Active Customers</div>
+                    </div>
+                </div>
+                
+                <div class="customer-list" id="customerList">
+                    <!-- Customers will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="admin-content hidden" id="messagesTab">
+                <div class="admin-section-header">
+                    <h3>Customer Messages</h3>
+                    <div class="message-filters">
+                        <select id="messageStatusFilter">
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                            <option value="all">All Messages</option>
+                        </select>
+                        <select id="messageChannelFilter">
+                            <option value="all">All Channels</option>
+                            <option value="website">Website</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="email">Email</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="message-list-container">
+                    <div class="message-channels">
+                        <div class="channel active" data-channel="all">
+                            <i class="fas fa-inbox"></i>
+                            <span>All Messages</span>
+                            <span class="badge">12</span>
+                        </div>
+                        <div class="channel" data-channel="website">
+                            <i class="fas fa-globe"></i>
+                            <span>Website</span>
+                            <span class="badge">5</span>
+                        </div>
+                        <div class="channel" data-channel="whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                            <span class="badge">3</span>
+                        </div>
+                        <div class="channel" data-channel="facebook">
+                            <i class="fab fa-facebook-messenger"></i>
+                            <span>Facebook</span>
+                            <span class="badge">2</span>
+                        </div>
+                        <div class="channel" data-channel="email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                            <span class="badge">2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="message-list" id="messageList">
+                        <!-- Messages will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-content hidden" id="blogTab">
+                <div class="admin-section-header">
+                    <h3>Blog & Announcements</h3>
+                    <button class="btn primary-btn" id="addPostBtn">Add New Post</button>
+                </div>
+                
+                <div class="blog-post-editor hidden" id="postEditor">
+                    <div class="form-group">
+                        <label for="postTitle">Post Title</label>
+                        <input type="text" id="postTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postImage">Featured Image URL</label>
+                        <input type="text" id="postImage">
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea id="postContent" rows="10"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postCategory">Category</label>
+                            <select id="postCategory">
+                                <option value="farming-tips">Farming Tips</option>
+                                <option value="seasonal-crops">Seasonal Crops</option>
+                                <option value="product-news">Product News</option>
+                                <option value="agro-trends">Agro Trends</option>
+                                <option value="announcements">Announcements</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="postStatus">Status</label>
+                            <select id="postStatus">
+                                <option value="draft">Draft</option>
+                                <option value="published">Published</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn primary-btn" id="savePostBtn">Save Post</button>
+                        <button class="btn outline-btn" id="cancelPostBtn">Cancel</button>
+                    </div>
+                </div>
+                
+                <div class="blog-posts" id="blogPosts">
+                    <!-- Blog posts will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="admin-content hidden" id="analyticsTab">
+                <div class="admin-section-header">
+                    <h3>Analytics & Reports</h3>
+                    <div class="analytics-filters">
+                        <select id="analyticsTimeRange">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30" selected>Last 30 Days</option>
+                            <option value="90">Last 90 Days</option>
+                            <option value="365">Last Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                        <select id="analyticsReportType">
+                            <option value="sales">Sales Report</option>
+                            <option value="products">Product Performance</option>
+                            <option value="customers">Customer Behavior</option>
+                        </select>
+                        <button class="btn primary-btn" id="generateReportBtn">Generate Report</button>
+                        <button class="btn outline-btn" id="exportReportBtn">Export Report</button>
+                    </div>
+                </div>
+                
+                <div class="analytics-charts">
+                    <div class="chart-container large">
+                        <h4>Sales Performance</h4>
+                        <canvas id="salesPerformanceChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h4>Top Products by Revenue</h4>
+                        <canvas id="topProductsChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h4>Customer Acquisition</h4>
+                        <canvas id="customerAcquisitionChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="analytics-data">
+                    <div class="data-table">
+                        <h4>Detailed Sales Data</h4>
+                        <table id="salesDataTable">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Orders</th>
+                                    <th>Revenue</th>
+                                    <th>Avg. Order Value</th>
+                                    <th>New Customers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sales data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-content hidden" id="settingsTab">
+                <div class="admin-section-header">
+                    <h3>Admin Settings</h3>
+                </div>
+                
+                <div class="settings-tabs">
+                    <button class="settings-tab active" data-tab="account">Account</button>
+                    <button class="settings-tab" data-tab="security">Security</button>
+                    <button class="settings-tab" data-tab="backup">Backup</button>
+                    <button class="settings-tab" data-tab="integrations">Integrations</button>
+                </div>
+                
+                <div class="settings-content">
+                    <div class="settings-pane active" id="account-pane">
+                        <form id="adminProfileForm">
+                            <div class="form-group">
+                                <label for="adminName">Full Name</label>
+                                <input type="text" id="adminName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminEmail">Email</label>
+                                <input type="email" id="adminEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminPhone">Phone Number</label>
+                                <input type="tel" id="adminPhone">
+                            </div>
+                            <button type="submit" class="btn primary-btn">Update Profile</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-pane hidden" id="security-pane">
+                        <form id="changePasswordForm">
+                            <div class="form-group">
+                                <label>Change Password</label>
+                                <input type="password" id="currentPassword" placeholder="Current Password">
+                                <input type="password" id="newPassword" placeholder="New Password">
+                                <input type="password" id="confirmNewPassword" placeholder="Confirm New Password">
+                                <button class="btn primary-btn" id="changePasswordBtn">Update Password</button>
+                            </div>
+                        </form>
+                        
+                        <div class="security-settings">
+                            <h4>Login Security</h4>
+                            <div class="security-option">
+                                <div class="option-info">
+                                    <h5>Two-Factor Authentication</h5>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="twoFactorToggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="security-option">
+                                <div class="option-info">
+                                    <h5>Login Notifications</h5>
+                                    <p>Get notified when someone logs into your account</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="loginNotificationsToggle" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-pane hidden" id="backup-pane">
+                        <div class="backup-options">
+                            <div class="backup-card">
+                                <i class="fas fa-download"></i>
+                                <h4>Backup Data</h4>
+                                <p>Create a backup of all your store data</p>
+                                <button class="btn primary-btn" id="backupDataBtn">Create Backup</button>
+                            </div>
+                            <div class="backup-card">
+                                <i class="fas fa-upload"></i>
+                                <h4>Restore Data</h4>
+                                <p>Restore your store from a previous backup</p>
+                                <button class="btn outline-btn" id="restoreDataBtn">Restore Backup</button>
+                                <input type="file" id="backupFile" class="hidden" accept=".json">
+                            </div>
+                        </div>
+                        
+                        <div class="backup-history">
+                            <h4>Recent Backups</h4>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Size</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2023-06-15 14:30</td>
+                                        <td>Full Backup</td>
+                                        <td>2.4 MB</td>
+                                        <td>
+                                            <button class="btn small-btn outline-btn">Download</button>
+                                            <button class="btn small-btn outline-btn">Restore</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-06-01 09:15</td>
+                                        <td>Full Backup</td>
+                                        <td>2.1 MB</td>
+                                        <td>
+                                            <button class="btn small-btn outline-btn">Download</button>
+                                            <button class="btn small-btn outline-btn">Restore</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-pane hidden" id="integrations-pane">
+                        <div class="integration-options">
+                            <div class="integration-card">
+                                <div class="integration-header">
+                                    <img src="https://via.placeholder.com/40" alt="WhatsApp">
+                                    <h4>WhatsApp Integration</h4>
+                                    <label class="switch">
+                                        <input type="checkbox" id="whatsappToggle" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <p>Connect your WhatsApp business account to communicate with customers</p>
+                                <div class="integration-settings">
+                                    <div class="form-group">
+                                        <label for="whatsappNumber">WhatsApp Number</label>
+                                        <input type="text" id="whatsappNumber" placeholder="+8801XXXXXXXXX">
+                                    </div>
+                                    <button class="btn primary-btn">Save Settings</button>
+                                </div>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <div class="integration-header">
+                                    <img src="https://via.placeholder.com/40" alt="Facebook">
+                                    <h4>Facebook Messenger</h4>
+                                    <label class="switch">
+                                        <input type="checkbox" id="facebookToggle">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <p>Connect your Facebook page to receive messages from customers</p>
+                                <div class="integration-settings hidden">
+                                    <button class="btn primary-btn">Connect Facebook</button>
+                                </div>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <div class="integration-header">
+                                    <img src="https://via.placeholder.com/40" alt="Payment">
+                                    <h4>Payment Gateway</h4>
+                                    <label class="switch">
+                                        <input type="checkbox" id="paymentToggle" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <p>Enable online payments through bKash, Nagad, and credit cards</p>
+                                <div class="integration-settings">
+                                    <div class="form-group">
+                                        <label for="bKashNumber">bKash Merchant Number</label>
+                                        <input type="text" id="bKashNumber" placeholder="+8801XXXXXXXXX">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nagadNumber">Nagad Merchant Number</label>
+                                        <input type="text" id="nagadNumber" placeholder="+8801XXXXXXXXX">
+                                    </div>
+                                    <button class="btn primary-btn">Save Settings</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Your Shopping Cart</h2>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be loaded here -->
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">৳0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span>৳50.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="cartTotal">৳50.00</span>
+                </div>
+            </div>
+            
+            <button class="btn primary-btn checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content checkout-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Checkout</h2>
+            
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <h3>Shipping Information</h3>
+                    <div class="form-group">
+                        <label for="checkoutName">Full Name</label>
+                        <input type="text" id="checkoutName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutEmail">Email</label>
+                        <input type="email" id="checkoutEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutPhone">Phone Number</label>
+                        <input type="tel" id="checkoutPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutAddress">Address</label>
+                        <input type="text" id="checkoutAddress" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkoutCity">City</label>
+                            <input type="text" id="checkoutCity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkoutZip">ZIP Code</label>
+                            <input type="text" id="checkoutZip" required>
+                        </div>
+                    </div>
+                    
+                    <h3>Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cod" checked>
+                            <label for="cashOnDelivery">Cash on Delivery</label>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" id="creditCard" name="paymentMethod" value="card">
+                            <label for="creditCard">Credit Card</label>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" id="bKash" name="paymentMethod" value="bKash">
+                            <label for="bKash">bKash</label>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" id="nagad" name="paymentMethod" value="nagad">
+                            <label for="nagad">Nagad</label>
+                        </div>
+                    </div>
+                    
+                    <div class="credit-card-info hidden" id="creditCardInfo">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry">Expiry Date</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCvv">CVV</label>
+                                <input type="text" id="cardCvv" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-payment-info hidden" id="bKashInfo">
+                        <div class="form-group">
+                            <label for="bKashNumberCheckout">bKash Number</label>
+                            <input type="text" id="bKashNumberCheckout" placeholder="01XXXXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="bKashTrxID">Transaction ID</label>
+                            <input type="text" id="bKashTrxID" placeholder="TRX123456789">
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-payment-info hidden" id="nagadInfo">
+                        <div class="form-group">
+                            <label for="nagadNumberCheckout">Nagad Number</label>
+                            <input type="text" id="nagadNumberCheckout" placeholder="01XXXXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="nagadTrxID">Transaction ID</label>
+                            <input type="text" id="nagadTrxID" placeholder="TRX123456789">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="order-items" id="checkoutItems">
+                        <!-- Order items will be loaded here -->
+                    </div>
+                    <div class="order-totals">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="orderSubtotal">৳0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span>৳50.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="orderTotal">৳50.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn primary-btn" id="placeOrderBtn">Place Order</button>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="orderConfirmationModal">
+        <div class="modal-content confirmation-modal">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase. Your order has been placed successfully.</p>
+            <p>Order ID: <span id="orderIdDisplay">CA-123456</span></p>
+            <div class="confirmation-buttons">
+                <button class="btn outline-btn" id="viewOrderBtn">View Order</button>
+                <button class="btn primary-btn" id="continueShoppingBtn">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="orderDetailsModal">
+        <div class="modal-content order-details-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Order Details</h2>
+            <div class="order-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Order ID:</span>
+                    <span class="meta-value" id="detailOrderId">CA-123456</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Date:</span>
+                    <span class="meta-value" id="detailOrderDate">June 15, 2023</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status:</span>
+                    <span class="meta-value" id="detailOrderStatus">Processing</span>
+                </div>
+            </div>
+            
+            <div class="order-details-container">
+                <div class="order-shipping">
+                    <h3>Shipping Information</h3>
+                    <div id="detailShippingInfo">
+                        <!-- Shipping info will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="order-payment">
+                    <h3>Payment Method</h3>
+                    <div id="detailPaymentMethod">
+                        <!-- Payment method will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-items-details">
+                <h3>Order Items</h3>
+                <div class="order-items-list" id="detailOrderItems">
+                    <!-- Order items will be loaded here -->
+                </div>
+                
+                <div class="order-totals-details">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="detailSubtotal">৳0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span>৳50.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="detailTotal">৳50.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="modal" id="productDetailsModal">
+        <div class="modal-content product-details-modal">
+            <span class="close-modal">&times;</span>
+            <div class="product-details-container">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="mainProductImage" src="" alt="Main Product Image">
+                    </div>
+                    <div class="thumbnail-images" id="productThumbnails">
+                        <!-- Thumbnails will be added here -->
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h2 id="detailProductName"></h2>
+                    <div class="product-category" id="detailProductCategory"></div>
+                    <div class="product-price">
+                        <span id="detailProductPrice"></span>
+                        <span class="original-price" id="detailOriginalPrice"></span>
+                        <span class="discount" id="detailDiscount"></span>
+                    </div>
+                    <div class="product-stock" id="detailProductStock"></div>
+                    <p class="product-description" id="detailProductDescription"></p>
+                    
+                    <div class="product-specs" id="productSpecs">
+                        <!-- Specifications will be added here -->
+                    </div>
+                    
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" value="1" min="1" id="detailQuantity">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="btn primary-btn" id="addToCartFromDetails">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div class="modal" id="userProfileModal">
+        <div class="modal-content profile-modal">
+            <span class="close-modal">&times;</span>
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profilePicture">
+                    <button class="btn outline-btn small-btn" id="changeProfilePic">Change</button>
+                </div>
+                <h2 id="profileName"></h2>
+                <p class="profile-email" id="profileEmail"></p>
+            </div>
+            
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="personal">Personal Info</button>
+                <button class="profile-tab" data-tab="orders">My Orders</button>
+                <button class="profile-tab" data-tab="addresses">Addresses</button>
+                <button class="profile-tab" data-tab="settings">Settings</button>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-pane active" id="personal-pane">
+                    <form id="personalInfoForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profileFirstName">First Name</label>
+                                <input type="text" id="profileFirstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileLastName">Last Name</label>
+                                <input type="text" id="profileLastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="profilePhone">Phone Number</label>
+                            <input type="tel" id="profilePhone" required>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Update Info</button>
+                    </form>
+                </div>
+                
+                <div class="profile-pane hidden" id="orders-pane">
+                    <div class="user-orders-list" id="userOrdersList">
+                        <!-- User orders will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="profile-pane hidden" id="addresses-pane">
+                    <div class="user-addresses" id="userAddresses">
+                        <!-- User addresses will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="profile-pane hidden" id="settings-pane">
+                    <form id="userSettingsForm">
+                        <div class="form-group">
+                            <label>Notification Preferences</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="emailNotifications" checked> Email Notifications
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="smsNotifications"> SMS Notifications
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Save Settings</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Profile Modal -->
+    <div class="modal" id="adminProfileModal">
+        <div class="modal-content profile-modal">
+            <span class="close-modal">&times;</span>
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" id="adminProfilePicture">
+                    <button class="btn outline-btn small-btn" id="changeAdminProfilePic">Change</button>
+                </div>
+                <h2 id="adminProfileName"></h2>
+                <p class="profile-email" id="adminProfileEmail"></p>
+                <p class="profile-role">Administrator</p>
+            </div>
+            
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="personal">Personal Info</button>
+                <button class="profile-tab" data-tab="settings">Settings</button>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-pane active" id="admin-personal-pane">
+                    <form id="adminPersonalInfoForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adminProfileFirstName">First Name</label>
+                                <input type="text" id="adminProfileFirstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminProfileLastName">Last Name</label>
+                                <input type="text" id="adminProfileLastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminProfilePhone">Phone Number</label>
+                            <input type="tel" id="adminProfilePhone" required>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Update Info</button>
+                    </form>
+                </div>
+                
+                <div class="profile-pane hidden" id="admin-settings-pane">
+                    <form id="adminSettingsForm">
+                        <div class="form-group">
+                            <label>Dashboard Preferences</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="showSalesChart" checked> Show Sales Chart
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="showRecentOrders" checked> Show Recent Orders
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Save Settings</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">
+                    <img src="1.jpg" alt="Chuadanga Agro Logo">
+                    <h3>Chuadanga <span>Agro</span></h3>
+                </div>
+                <p>Premium agricultural products from the heart of Bangladesh.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Product Categories</h3>
+                <ul>
+                    <li><a href="#" data-category="livestock">Livestock</a></li>
+                    <li><a href="#" data-category="fruits">Fruits</a></li>
+                    <li><a href="#" data-category="crops">Crops</a></li>
+                    <li><a href="#" data-category="dairy">Dairy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get updates on our latest products and offers.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your Email" id="newsletterEmail" required>
+                    <button type="submit" class="btn primary-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Chuadanga Agro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-icon">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chat-box">
+            <div class="chat-header">
+                <h3>Need Help?</h3>
+                <span class="close-chat">&times;</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message received">
+                    <p>Hello! How can we help you today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." id="chatInput">
+                <button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
